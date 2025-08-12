@@ -6,114 +6,59 @@
     <title>Eyleen Martinez - Tecnóloga en Sistemas</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- Botón de descargar PDF -->
-<div class="download-section">
-    <button onclick="downloadPDF()" class="btn-download">
-        <i class="download-icon">📄</i>
-        <span>Descargar PDF</span>
-    </button>
-</div>
-
-<script>
-// Función para descargar como PDF
-function downloadPDF() {
-    // Configurar la página para impresión optimizada
-    document.body.classList.add('print-mode');
-    
-    // Pequeño delay para aplicar estilos
-    setTimeout(() => {
-        window.print();
-        // Remover la clase después de imprimir
-        setTimeout(() => {
-            document.body.classList.remove('print-mode');
-        }, 1000);
-    }, 100);
-}
-
-// Atajo de teclado Ctrl+P para descargar
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'p') {
-        e.preventDefault();
-        downloadPDF();
-    }
-});
-</script>
-
-
-<script>
-// Función para imprimir
-function printPage() {
-    window.print();
-}
-
-// Función para descargar como PDF
-function downloadPDF() {
-    window.print();
-    // El usuario puede seleccionar "Guardar como PDF" en el diálogo de impresión
-}
-
-// Atajo de teclado Ctrl+P
-document.addEventListener('keydown', function(e) {
-    if (e.ctrlKey && e.key === 'p') {
-        e.preventDefault();
-        window.print();
-    }
-});
-</script>
-
-</div>
 <body>
     <header>
-    <div class="header-content">
-        <div class="profile-photo">
-            <img src="Foto1.png" alt="Eyleen Martinez" class="profile-img">
+        <div class="header-content">
+            <div class="profile-photo">
+                <img src="Foto1.png" alt="Eyleen Martinez" class="profile-img">
+            </div>
+            <div class="header-text">
+                <h1>Eyleen Martinez Montero</h1>
+                <p>Tecnóloga en Análisis y Desarrollo de Sistemas de Información</p>
+            </div>
         </div>
-        <div class="header-text">
-            <h1>Eyleen Martinez Montero</h1>
-            <p>Tecnóloga en Análisis y Desarrollo de Sistemas de Información</p>
-        </div>
-    </div>
-</header>
+    </header>
     
     <main>
         <section>
             <h2>Perfil Profesional</h2>
-            <p>Tecnóloga en Análisis y Desarrollo de Sistemas de Información con más de 6 años de experiencia transformando infraestructuras tecnológicas y optimizando procesos IT.
-
-💼 EXPERIENCIA DESTACADA:
-• Administración y configuración de servidores
-• Gestión de Active Directory y dominios corporativos
-• Monitoreo de sistemas y resolución proactiva de problemas
-• Creación de topologías de red y documentación técnica
-• Configuración de máquinas virtuales y equipos de red.</p>
+            <p>Tecnóloga en Análisis y Desarrollo de Sistemas de Información con más de 6 años de experiencia transformando infraestructuras tecnológicas y optimizando procesos IT.</p>
+            
+            <p><strong>💼 EXPERIENCIA DESTACADA:</strong></p>
+            <ul>
+                <li>Administración y configuración de servidores</li>
+                <li>Gestión de Active Directory y dominios corporativos</li>
+                <li>Monitoreo de sistemas y resolución proactiva de problemas</li>
+                <li>Creación de topologías de red y documentación técnica</li>
+                <li>Configuración de máquinas virtuales y equipos de red</li>
+            </ul>
         </section>
         
-        <section>
+        <section class="page-break-before">
             <h2>Experiencia Profesional</h2>
-        
-
+            
             <div class="job">
-                <h3>Tecnico Informatico </h3>
-                <h4>INETUM España| Febrero 2021 - Actualmente </h4>
+                <h3>Técnico Informático</h3>
+                <h4>INETUM España | Febrero 2021 - Actualmente</h4>
                 <ul>
                     <li>Mantenimiento y soporte a las plataformas de Santalucia</li>
                     <li>Gestión de usuarios en Active Directory y dominio</li>
-                    <li>Diagnostica y soluciona problemas técnicos que puedan surgir en los sistemas informáticos</li>
-                    <li>Responde preguntas y ayuda a los usuarios con problemas relacionados con el uso de software y hardware. </li>
+                    <li>Diagnóstica y soluciona problemas técnicos en sistemas informáticos</li>
+                    <li>Soporte técnico a usuarios con problemas de software y hardware</li>
                 </ul>
             </div>
-             <div class="job">
+            
+            <div class="job">
                 <h3>Documentador de Topologías</h3>
                 <h4>NEOSECURE S.A.S | Junio 2021 - Junio 2023</h4>
                 <ul>
-                    
-                    <li>Responsable de la creación y gestión de topologías de red para servicios empresariales:</li>
                     <li>Diseño y documentación de topologías de red para clientes corporativos</li>
                     <li>Monitoreo continuo de servidores empresariales y gestión proactiva de alarmas</li>
                     <li>Administración de gestores de red y optimización de rendimiento</li>
-                    <li>Colaboración estrecha con equipos técnicos para garantizar la continuidad del servicio</li>
+                    <li>Colaboración con equipos técnicos para garantizar continuidad del servicio</li>
                 </ul>
             </div>
+            
             <div class="job">
                 <h3>Técnico IT</h3>
                 <h4>NEOSECURE S.A.S | Agosto 2020 - Febrero 2021</h4>
@@ -130,9 +75,9 @@ document.addEventListener('keydown', function(e) {
                 <h4>NEOSECURE S.A.S | Abril 2017 - Octubre 2018</h4>
                 <ul>
                     <li>Mantenimiento preventivo y correctivo de infraestructura IT</li>
-                    <li>Administración de usuarios en Active Directory y gestión de dominios</li>
-                    <li>Configuración y despliegue de máquinas virtuales para equipos de ingeniería</li>
-                    <li>Setup y configuración de servidores, switches, módems e impresoras</li>
+                    <li>Administración de usuarios en Active Directory</li>
+                    <li>Configuración de máquinas virtuales para equipos de ingeniería</li>
+                    <li>Setup de servidores, switches, módems e impresoras</li>
                     <li>Gestión de accesos a correo corporativo y recursos de red</li>
                 </ul>
             </div>
@@ -142,10 +87,10 @@ document.addEventListener('keydown', function(e) {
             <h2>Educación</h2>
             
             <div class="education">
-                <h3>Inglesn</h3>
-                <h4> Manhattan Language School | 2025 </h4>
-                <p>A1</p>
-            </div>     
+                <h3>Inglés</h3>
+                <h4>Manhattan Language School | 2025</h4>
+                <p>Nivel A1</p>
+            </div>
             
             <div class="education">
                 <h3>Análisis y Desarrollo de Sistemas de Información</h3>
@@ -185,5 +130,35 @@ document.addEventListener('keydown', function(e) {
             </div>
         </section>
     </main>
+
+    <!-- Botón de descargar PDF -->
+    <div class="download-section">
+        <button onclick="downloadPDF()" class="btn-download">
+            <i class="download-icon">📄</i>
+            <span>Descargar PDF</span>
+        </button>
+    </div>
+
+    <script>
+    // Función para descargar como PDF
+    function downloadPDF() {
+        document.body.classList.add('print-mode');
+        setTimeout(() => {
+            window.print();
+            setTimeout(() => {
+                document.body.classList.remove('print-mode');
+            }, 1000);
+        }, 100);
+    }
+
+    // Atajo de teclado Ctrl+P para descargar
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'p') {
+            e.preventDefault();
+            downloadPDF();
+        }
+    });
+    </script>
 </body>
 </html>
+
