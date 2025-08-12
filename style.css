@@ -478,91 +478,101 @@ section:nth-child(6) { animation-delay: 0.5s; }
     }
 }
 
-/* Estilos mejorados para impresión */
+/* Versión ULTRA COMPACTA */
 @media print {
-    * {
-        -webkit-print-color-adjust: exact !important;
-        color-adjust: exact !important;
-        print-color-adjust: exact !important;
+    @page {
+        size: A4;
+        margin: 0.3in;
     }
     
     body {
-        background: white !important;
-        font-size: 11pt;
-        line-height: 1.4;
-        margin: 0;
-        padding: 15px;
+        font-size: 8pt !important;
+        line-height: 1.1 !important;
+        transform: scale(0.75);
+        transform-origin: top left;
+        width: 133%;
     }
     
     header {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
-        -webkit-print-color-adjust: exact;
-        page-break-inside: avoid;
-        margin-bottom: 20px;
-        padding: 2rem !important;
+        background: var(--primary) !important;
+        color: white !important;
+        padding: 1rem !important;
+        margin-bottom: 10px;
+        text-align: center;
     }
     
     .header-content {
-        gap: 2rem !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
     }
     
     .profile-img {
-        width: 100px !important;
-        height: 100px !important;
-        border: 3px solid rgba(255, 255, 255, 0.8) !important;
-    }
-    
-    section {
-        page-break-inside: avoid;
-        margin-bottom: 15px;
-        padding: 1.5rem !important;
-        box-shadow: none !important;
-        border: 1px solid #ddd;
+        width: 60px !important;
+        height: 60px !important;
     }
     
     h1 {
-        font-size: 22pt !important;
-        color: white !important;
+        font-size: 16pt !important;
+        margin: 0 !important;
+    }
+    
+    header p {
+        font-size: 10pt !important;
+        margin: 0 !important;
+    }
+    
+    main {
+        columns: 2;
+        column-gap: 15px;
+        column-fill: balance;
+    }
+    
+    section {
+        break-inside: avoid;
+        margin-bottom: 8px;
+        padding: 0.8rem !important;
+        border: 1px solid #ccc;
+        background: white !important;
     }
     
     h2 {
-        font-size: 16pt !important;
+        font-size: 11pt !important;
+        margin-bottom: 0.5rem !important;
         color: var(--primary) !important;
-        border-bottom: 2px solid var(--primary) !important;
     }
     
     h3 {
-        font-size: 13pt !important;
-        color: var(--text-dark) !important;
+        font-size: 9pt !important;
+        margin-bottom: 0.2rem !important;
     }
     
     h4 {
-        font-size: 11pt !important;
+        font-size: 8pt !important;
+        margin-bottom: 0.3rem !important;
         color: var(--primary) !important;
     }
     
     p, li {
-        font-size: 10pt !important;
-        color: var(--text-light) !important;
-    }
-    
-    .skill {
-        background: var(--primary) !important;
-        color: white !important;
-        -webkit-print-color-adjust: exact;
-        font-size: 9pt !important;
-        padding: 0.4rem 0.8rem !important;
+        font-size: 7pt !important;
+        margin-bottom: 0.2rem !important;
+        line-height: 1.2 !important;
     }
     
     .job, .education {
-        background: var(--card-bg) !important;
-        -webkit-print-color-adjust: exact;
-        border-left: 4px solid var(--primary) !important;
+        margin-bottom: 0.5rem !important;
+        padding: 0.5rem !important;
+        background: #f9f9f9 !important;
     }
     
-    .contact-info p {
-        background: var(--card-bg) !important;
-        -webkit-print-color-adjust: exact;
+    .skill {
+        font-size: 6pt !important;
+        padding: 0.2rem 0.4rem !important;
+        background: var(--primary) !important;
+        color: white !important;
+    }
+    
+    .print-section {
+        display: none !important;
     }
 }
 
