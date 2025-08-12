@@ -486,23 +486,24 @@ section:nth-child(6) { animation-delay: 0.5s; }
     }
 }
 
-/* Estilos optimizados para impresión en 2 páginas */
+/* Estilos optimizados para impresión - MÁXIMO APROVECHAMIENTO */
 @media print {
     * {
         -webkit-print-color-adjust: exact !important;
         color-adjust: exact !important;
         print-color-adjust: exact !important;
+        box-sizing: border-box !important;
     }
     
     @page {
         size: A4;
-        margin: 0.6in 0.5in;
+        margin: 0.4in 0.5in 0.4in 0.5in;
     }
     
     body {
         background: white !important;
-        font-size: 10pt !important;
-        line-height: 1.3 !important;
+        font-size: 9pt !important;
+        line-height: 1.2 !important;
         margin: 0;
         padding: 0;
         color: #333 !important;
@@ -512,33 +513,35 @@ section:nth-child(6) { animation-delay: 0.5s; }
         background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
         -webkit-print-color-adjust: exact;
         page-break-inside: avoid;
-        margin-bottom: 20px;
-        padding: 1.5rem !important;
-        border-radius: 8px;
+        margin-bottom: 12px !important;
+        padding: 1rem !important;
+        border-radius: 6px;
     }
     
     .header-content {
-        gap: 1.5rem !important;
+        gap: 1rem !important;
         flex-direction: row !important;
         align-items: center !important;
     }
     
     .profile-img {
-        width: 90px !important;
-        height: 90px !important;
-        border: 3px solid rgba(255, 255, 255, 0.8) !important;
+        width: 70px !important;
+        height: 70px !important;
+        border: 2px solid rgba(255, 255, 255, 0.8) !important;
     }
     
     .header-text h1 {
-        font-size: 20pt !important;
+        font-size: 16pt !important;
         color: white !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.3rem !important;
+        line-height: 1.1 !important;
     }
     
     .header-text p {
-        font-size: 12pt !important;
+        font-size: 10pt !important;
         color: rgba(255, 255, 255, 0.9) !important;
         margin: 0 !important;
+        line-height: 1.2 !important;
     }
     
     main {
@@ -547,55 +550,72 @@ section:nth-child(6) { animation-delay: 0.5s; }
     
     section {
         page-break-inside: avoid;
-        margin-bottom: 18px;
-        padding: 1rem !important;
+        margin-bottom: 10px !important;
+        padding: 0.7rem !important;
         box-shadow: none !important;
         border: 1px solid #ddd;
-        border-radius: 6px;
+        border-radius: 4px;
         background: white !important;
     }
     
-    /* Forzar salto de página antes de Experiencia */
+    /* QUITAR el salto de página forzado */
     .page-break-before {
-        page-break-before: always !important;
+        page-break-before: auto !important;
         margin-top: 0 !important;
     }
     
     h2 {
-        font-size: 14pt !important;
+        font-size: 12pt !important;
         color: var(--primary) !important;
-        border-bottom: 2px solid var(--primary) !important;
-        margin-bottom: 1rem !important;
-        padding-bottom: 0.3rem !important;
+        border-bottom: 1.5px solid var(--primary) !important;
+        margin-bottom: 0.6rem !important;
+        padding-bottom: 0.2rem !important;
+        line-height: 1.1 !important;
     }
     
     h3 {
-        font-size: 11pt !important;
+        font-size: 10pt !important;
         color: var(--text-dark) !important;
-        margin-bottom: 0.3rem !important;
+        margin-bottom: 0.2rem !important;
         font-weight: 600 !important;
+        line-height: 1.1 !important;
     }
     
     h4 {
-        font-size: 9pt !important;
+        font-size: 8.5pt !important;
         color: var(--primary) !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 0.3rem !important;
         font-weight: 500 !important;
+        line-height: 1.1 !important;
     }
     
     p, li {
-        font-size: 9pt !important;
+        font-size: 8pt !important;
         color: var(--text-light) !important;
+        margin-bottom: 0.2rem !important;
+        line-height: 1.3 !important;
+    }
+    
+    /* Perfil profesional más compacto */
+    section:first-of-type p {
         margin-bottom: 0.3rem !important;
-        line-height: 1.4 !important;
+    }
+    
+    section:first-of-type ul {
+        margin: 0.3rem 0 !important;
+        padding-left: 1rem !important;
+    }
+    
+    section:first-of-type li {
+        margin-bottom: 0.1rem !important;
     }
     
     .job, .education {
         background: var(--card-bg) !important;
         -webkit-print-color-adjust: exact;
-        border-left: 3px solid var(--primary) !important;
-        margin-bottom: 1rem !important;
-        padding: 0.8rem !important;
+        border-left: 2px solid var(--primary) !important;
+        margin-bottom: 0.6rem !important;
+        padding: 0.5rem !important;
         page-break-inside: avoid;
     }
     
@@ -604,38 +624,41 @@ section:nth-child(6) { animation-delay: 0.5s; }
     }
     
     .job ul, .education ul {
-        margin: 0.5rem 0 !important;
+        margin: 0.3rem 0 0 0 !important;
         padding-left: 1rem !important;
     }
     
     .job li, .education li {
-        margin-bottom: 0.2rem !important;
+        margin-bottom: 0.1rem !important;
     }
     
     .skills {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.3rem !important;
+        gap: 0.2rem !important;
+        margin-top: 0.3rem !important;
     }
     
     .skill {
         background: var(--primary) !important;
         color: white !important;
         -webkit-print-color-adjust: exact;
-        font-size: 8pt !important;
-        padding: 0.3rem 0.6rem !important;
-        border-radius: 12px;
+        font-size: 7pt !important;
+        padding: 0.2rem 0.4rem !important;
+        border-radius: 8px;
         margin: 0 !important;
+        line-height: 1.1 !important;
     }
     
     .contact-info p {
         background: var(--card-bg) !important;
         -webkit-print-color-adjust: exact;
-        padding: 0.5rem !important;
-        margin-bottom: 0.4rem !important;
-        border-radius: 4px;
-        border-left: 3px solid var(--accent) !important;
-        font-size: 8pt !important;
+        padding: 0.3rem !important;
+        margin-bottom: 0.2rem !important;
+        border-radius: 3px;
+        border-left: 2px solid var(--accent) !important;
+        font-size: 7.5pt !important;
+        line-height: 1.2 !important;
     }
     
     .contact-info strong {
@@ -647,16 +670,33 @@ section:nth-child(6) { animation-delay: 0.5s; }
         display: none !important;
     }
     
+    /* Optimización de espacios */
+    section:last-child {
+        margin-bottom: 0 !important;
+    }
+    
     /* Evitar huérfanos y viudas */
     h2, h3 {
         page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
     }
     
     p, li {
         orphans: 2;
         widows: 2;
     }
+    
+    /* Forzar contenido más compacto */
+    .job h3, .education h3 {
+        margin-top: 0 !important;
+    }
+    
+    .job h4, .education h4 {
+        margin-top: 0 !important;
+    }
 }
+
 
 
 
