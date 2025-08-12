@@ -6,10 +6,39 @@
     <title>Eyleen Martinez - Tecnóloga en Sistemas</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<div class="print-button">
+<!-- Botón de imprimir -->
+<div class="print-section">
     <button onclick="window.print()" class="btn-print">
-        🖨️ Imprimir CV
+        <i class="print-icon">🖨️</i>
+        <span>Imprimir CV</span>
     </button>
+    <button onclick="downloadPDF()" class="btn-pdf">
+        <i class="pdf-icon">📄</i>
+        <span>Descargar PDF</span>
+    </button>
+</div>
+
+<script>
+// Función para imprimir
+function printPage() {
+    window.print();
+}
+
+// Función para descargar como PDF
+function downloadPDF() {
+    window.print();
+    // El usuario puede seleccionar "Guardar como PDF" en el diálogo de impresión
+}
+
+// Atajo de teclado Ctrl+P
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key === 'p') {
+        e.preventDefault();
+        window.print();
+    }
+});
+</script>
+
 </div>
 <body>
     <header>
