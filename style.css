@@ -386,3 +386,183 @@ section:nth-child(6) { animation-delay: 0.5s; }
         height: 120px;
     }
 }
+/* Botones de impresión */
+.print-section {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.btn-print, .btn-pdf {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: var(--white);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(28, 87, 102, 0.3);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+}
+
+.btn-print:hover, .btn-pdf:hover {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(28, 87, 102, 0.4);
+}
+
+.btn-print:active, .btn-pdf:active {
+    transform: translateY(-1px);
+}
+
+.print-icon, .pdf-icon {
+    font-size: 18px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Animación de entrada */
+.print-section {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .print-section {
+        bottom: 20px;
+        right: 20px;
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .btn-print, .btn-pdf {
+        padding: 12px 15px;
+        font-size: 12px;
+        min-width: auto;
+    }
+    
+    .btn-print span, .btn-pdf span {
+        display: none;
+    }
+    
+    .print-icon, .pdf-icon {
+        font-size: 16px;
+    }
+}
+
+/* Ocultar botones al imprimir */
+@media print {
+    .print-section {
+        display: none !important;
+    }
+}
+
+/* Estilos mejorados para impresión */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
+    body {
+        background: white !important;
+        font-size: 11pt;
+        line-height: 1.4;
+        margin: 0;
+        padding: 15px;
+    }
+    
+    header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        -webkit-print-color-adjust: exact;
+        page-break-inside: avoid;
+        margin-bottom: 20px;
+        padding: 2rem !important;
+    }
+    
+    .header-content {
+        gap: 2rem !important;
+    }
+    
+    .profile-img {
+        width: 100px !important;
+        height: 100px !important;
+        border: 3px solid rgba(255, 255, 255, 0.8) !important;
+    }
+    
+    section {
+        page-break-inside: avoid;
+        margin-bottom: 15px;
+        padding: 1.5rem !important;
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+    
+    h1 {
+        font-size: 22pt !important;
+        color: white !important;
+    }
+    
+    h2 {
+        font-size: 16pt !important;
+        color: var(--primary) !important;
+        border-bottom: 2px solid var(--primary) !important;
+    }
+    
+    h3 {
+        font-size: 13pt !important;
+        color: var(--text-dark) !important;
+    }
+    
+    h4 {
+        font-size: 11pt !important;
+        color: var(--primary) !important;
+    }
+    
+    p, li {
+        font-size: 10pt !important;
+        color: var(--text-light) !important;
+    }
+    
+    .skill {
+        background: var(--primary) !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        font-size: 9pt !important;
+        padding: 0.4rem 0.8rem !important;
+    }
+    
+    .job, .education {
+        background: var(--card-bg) !important;
+        -webkit-print-color-adjust: exact;
+        border-left: 4px solid var(--primary) !important;
+    }
+    
+    .contact-info p {
+        background: var(--card-bg) !important;
+        -webkit-print-color-adjust: exact;
+    }
+}
+
