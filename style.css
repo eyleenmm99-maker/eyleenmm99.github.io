@@ -386,54 +386,68 @@ section:nth-child(6) { animation-delay: 0.5s; }
         height: 120px;
     }
 }
-/* Botones de impresión */
-.print-section {
+/* Botón de descarga */
+.download-section {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     z-index: 1000;
 }
 
-.btn-print, .btn-pdf {
+.btn-download {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     color: var(--white);
     border: none;
-    padding: 15px 20px;
+    padding: 18px 25px;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 8px 25px rgba(28, 87, 102, 0.3);
+    box-shadow: 0 10px 30px rgba(28, 87, 102, 0.3);
     transition: all 0.3s ease;
-    min-width: 150px;
+    min-width: 180px;
     justify-content: center;
     backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-print:hover, .btn-pdf:hover {
+.btn-download:hover {
     background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(28, 87, 102, 0.4);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(28, 87, 102, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
-.btn-print:active, .btn-pdf:active {
-    transform: translateY(-1px);
+.btn-download:active {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28, 87, 102, 0.3);
 }
 
-.print-icon, .pdf-icon {
-    font-size: 18px;
+.download-icon {
+    font-size: 20px;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    animation: bounce 2s infinite;
 }
 
-/* Animación de entrada */
-.print-section {
-    animation: slideInRight 0.5s ease-out;
+/* Animación del ícono */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-3px);
+    }
+    60% {
+        transform: translateY(-2px);
+    }
+}
+
+/* Animación de entrada del botón */
+.download-section {
+    animation: slideInRight 0.6s ease-out;
 }
 
 @keyframes slideInRight {
@@ -449,130 +463,194 @@ section:nth-child(6) { animation-delay: 0.5s; }
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
-    .print-section {
+    .download-section {
         bottom: 20px;
         right: 20px;
-        flex-direction: row;
-        gap: 10px;
     }
     
-    .btn-print, .btn-pdf {
-        padding: 12px 15px;
-        font-size: 12px;
-        min-width: auto;
+    .btn-download {
+        padding: 15px 20px;
+        font-size: 13px;
+        min-width: 150px;
     }
     
-    .btn-print span, .btn-pdf span {
-        display: none;
-    }
-    
-    .print-icon, .pdf-icon {
-        font-size: 16px;
+    .download-icon {
+        font-size: 18px;
     }
 }
 
-/* Ocultar botones al imprimir */
+/* Ocultar botón al imprimir/descargar */
 @media print {
-    .print-section {
+    .download-section {
         display: none !important;
     }
 }
 
-/* Versión ULTRA COMPACTA */
+/* Estilos optimizados para descarga PDF - UNA SOLA PÁGINA */
 @media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    
     @page {
         size: A4;
-        margin: 0.3in;
+        margin: 0.4in;
     }
     
     body {
-        font-size: 8pt !important;
-        line-height: 1.1 !important;
-        transform: scale(0.75);
+        background: white !important;
+        font-size: 9pt !important;
+        line-height: 1.2 !important;
+        margin: 0;
+        padding: 8px;
+        transform: scale(0.82);
         transform-origin: top left;
-        width: 133%;
+        width: 122%;
     }
     
     header {
-        background: var(--primary) !important;
-        color: white !important;
-        padding: 1rem !important;
-        margin-bottom: 10px;
-        text-align: center;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        -webkit-print-color-adjust: exact;
+        page-break-inside: avoid;
+        margin-bottom: 12px;
+        padding: 1.2rem !important;
+        border-radius: 8px;
     }
     
     .header-content {
-        flex-direction: column !important;
-        gap: 0.5rem !important;
+        gap: 1.2rem !important;
+        flex-direction: row !important;
+        align-items: center !important;
     }
     
     .profile-img {
-        width: 60px !important;
-        height: 60px !important;
+        width: 75px !important;
+        height: 75px !important;
+        border: 2px solid rgba(255, 255, 255, 0.8) !important;
     }
     
-    h1 {
+    .header-text h1 {
         font-size: 16pt !important;
-        margin: 0 !important;
+        color: white !important;
+        margin-bottom: 0.3rem !important;
     }
     
-    header p {
+    .header-text p {
         font-size: 10pt !important;
+        color: rgba(255, 255, 255, 0.9) !important;
         margin: 0 !important;
     }
     
     main {
-        columns: 2;
-        column-gap: 15px;
-        column-fill: balance;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 12px;
     }
     
     section {
-        break-inside: avoid;
+        page-break-inside: avoid;
         margin-bottom: 8px;
         padding: 0.8rem !important;
-        border: 1px solid #ccc;
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+        border-radius: 6px;
         background: white !important;
     }
     
+    /* Perfil profesional ocupa toda la fila */
+    section:first-child {
+        grid-column: 1 / -1;
+    }
+    
     h2 {
-        font-size: 11pt !important;
-        margin-bottom: 0.5rem !important;
+        font-size: 12pt !important;
         color: var(--primary) !important;
+        border-bottom: 2px solid var(--primary) !important;
+        margin-bottom: 0.8rem !important;
+        padding-bottom: 0.2rem !important;
     }
     
     h3 {
-        font-size: 9pt !important;
+        font-size: 10pt !important;
+        color: var(--text-dark) !important;
         margin-bottom: 0.2rem !important;
     }
     
     h4 {
         font-size: 8pt !important;
-        margin-bottom: 0.3rem !important;
         color: var(--primary) !important;
+        margin-bottom: 0.4rem !important;
     }
     
     p, li {
-        font-size: 7pt !important;
+        font-size: 7.5pt !important;
+        color: var(--text-light) !important;
         margin-bottom: 0.2rem !important;
-        line-height: 1.2 !important;
+        line-height: 1.25 !important;
     }
     
     .job, .education {
-        margin-bottom: 0.5rem !important;
-        padding: 0.5rem !important;
-        background: #f9f9f9 !important;
+        background: var(--card-bg) !important;
+        -webkit-print-color-adjust: exact;
+        border-left: 3px solid var(--primary) !important;
+        margin-bottom: 0.6rem !important;
+        padding: 0.6rem !important;
+    }
+    
+    .job:last-child, .education:last-child {
+        margin-bottom: 0 !important;
+    }
+    
+    .job ul, .education ul {
+        margin: 0.3rem 0 !important;
+        padding-left: 0.8rem !important;
+    }
+    
+    .job li {
+        margin-bottom: 0.1rem !important;
+    }
+    
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2rem !important;
     }
     
     .skill {
-        font-size: 6pt !important;
-        padding: 0.2rem 0.4rem !important;
         background: var(--primary) !important;
         color: white !important;
+        -webkit-print-color-adjust: exact;
+        font-size: 6.5pt !important;
+        padding: 0.2rem 0.5rem !important;
+        border-radius: 12px;
+        margin: 0 !important;
     }
     
-    .print-section {
-        display: none !important;
+    .contact-info p {
+        background: var(--card-bg) !important;
+        -webkit-print-color-adjust: exact;
+        padding: 0.4rem !important;
+        margin-bottom: 0.3rem !important;
+        border-radius: 4px;
+        border-left: 3px solid var(--accent) !important;
+        font-size: 7pt !important;
+    }
+    
+    .contact-info strong {
+        color: var(--primary) !important;
     }
 }
+
+/* Modo de impresión activado por JavaScript */
+body.print-mode {
+    overflow: hidden;
+}
+
+body.print-mode .download-section {
+    display: none;
+}
+
 
