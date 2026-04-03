@@ -22,23 +22,20 @@ body {
 
 /* --- CONTENEDOR PRINCIPAL (COMO TU CAPTURA) --- */
 .resume-container {
-    width: 210mm; /* Ancho A4 */
-    min-height: 280mm; /* Altura mínima para que llene la hoja */
-    background: white;
+    width: 210mm;
+    min-height: 290mm; /* Casi el alto total de una hoja A4 */
     display: flex;
+    background: white;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-
 }
 
-/* --- COLUMNA IZQUIERDA (BLANCA) --- */
 .main-column {
     flex: 1.6;
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Esto elimina el hueco blanco final */
+    justify-content: space-between; /* Distribuye el espacio sobrante entre bloques */
 }
 
 .sidebar {
@@ -48,7 +45,7 @@ body {
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Esto equilibra la columna azul */
+    justify-content: space-between; /* Alinea los bloques de la derecha también */
 }
 
 /* --- ESTILOS DE TÍTULOS Y SECCIONES --- */
@@ -83,10 +80,36 @@ h2 {
 .destacado ul { padding-left: 18px; margin: 0; }
 .destacado li { font-size: 0.85rem; color: #555; margin-bottom: 4px; }
 
-.job { margin-bottom: 15px; }
-.job h3 { font-size: 0.95rem; color: #222; margin: 0; }
-.job h4 { font-size: 0.8rem; color: var(--primary); margin: 3px 0; }
-.job ul { padding-left: 15px; font-size: 0.8rem; color: #666; }
+/* Busca .job y reemplázalo por esto */
+.job {
+    margin-bottom: 30px; /* Aumentamos el espacio entre un trabajo y otro */
+}
+
+.job h3 {
+    font-size: 1.05rem;
+    color: #222;
+    margin: 0;
+    font-weight: 700;
+}
+
+.job h4 {
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin: 5px 0; /* Un poco más de espacio bajo el cargo */
+    font-weight: 600;
+}
+
+.job ul {
+    padding-left: 20px;
+    margin-top: 10px; /* Esto separa los puntos del título del cargo */
+}
+
+.job li {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 8px; /* Espacio entre cada punto de la lista */
+    line-height: 1.5;
+}
 
 /* --- SIDEBAR TEXTO (BLANCO) --- */
 .lista-fortalezas { list-style: none; padding: 0; }
@@ -112,13 +135,13 @@ h2 {
 
 /* --- CORRECCIÓN DE LA FOTO --- */
 .profile-photo {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 5px solid rgba(255,255,255,0.2);
-    margin: 0 auto 20px auto;
+    border: 6px solid rgba(255,255,255,0.15); /* Borde más suave */
+    margin: 0 auto 10px auto;
     overflow: hidden;
-    flex-shrink: 0; /* Para que no se aplaste */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 /* Forzamos el tamaño de la imagen */
