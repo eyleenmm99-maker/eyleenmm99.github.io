@@ -21,23 +21,26 @@ body {
 }
 
 /* --- CONTENEDOR PRINCIPAL (COMO TU CAPTURA) --- */
+/* 1. El contenedor principal */
 .resume-container {
     width: 210mm;
-    min-height: 290mm; /* Casi el alto total de una hoja A4 */
+    min-height: 290mm; /* Esto obliga a que sea del alto de una hoja */
     display: flex;
     background: white;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
+/* 2. La columna blanca (Izquierda) */
 .main-column {
     flex: 1.6;
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribuye el espacio sobrante entre bloques */
+    justify-content: space-between; /* <--- ESTO QUITA EL HUECO BLANCO */
 }
 
+/* 3. La columna azul (Derecha) */
 .sidebar {
     flex: 1;
     background: var(--primary);
@@ -45,9 +48,8 @@ body {
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Alinea los bloques de la derecha también */
+    justify-content: space-between; /* <--- ESTO ESTIRA EL AZUL HASTA ABAJO */
 }
-
 /* --- ESTILOS DE TÍTULOS Y SECCIONES --- */
 h2 { 
     font-size: 1.1rem; 
