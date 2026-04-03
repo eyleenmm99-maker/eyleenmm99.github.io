@@ -1,228 +1,145 @@
-/* --- CONFIGURACIÓN GLOBAL --- */
 :root {
-    --primary: #1c5766; /* Azul Petróleo */
+    --primary: #1c5766;
     --accent: #4a9fb0;
-    --text-dark: #1a2e35;
-    --text-light: #ffffff; /* Texto blanco */
+    --bg-light: #f4f7f8;
     --white: #ffffff;
-    --bg-light: #f0f7f8;
 }
+
+* { box-sizing: border-box; }
 
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    background: var(--bg-light);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e0e0e0;
     margin: 0;
     padding: 20px;
-    color: var(--text-dark);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    color: #333;
 }
 
-/* --- CONTENEDOR PRINCIPAL (COMO TU CAPTURA) --- */
-/* 1. El contenedor principal */
+/* CONTENEDOR TIPO HOJA A4 */
 .resume-container {
-    width: 100%;
-    max-width: 900px; /* Esto evita que se vea tan ancho en la web */
-    min-height: 290mm; 
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--white);
+    margin: 0 auto;
     display: flex;
-    background: white;
-    margin: 20px auto; /* Centra la hoja en la pantalla */
-    box-shadow: 0 0 20px rgba(0,0,0,0.2); /* Le da profundidad */
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
     overflow: hidden;
 }
 
-/* 2. La columna blanca (Izquierda) */
+/* COLUMNA IZQUIERDA */
 .main-column {
     flex: 1.6;
     padding: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* <--- ESTO QUITA EL HUECO BLANCO */
+    justify-content: space-between; /* Elimina huecos abajo */
 }
 
-/* 3. La columna azul (Derecha) */
+.main-title {
+    color: var(--primary);
+    font-size: 1.6rem;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 0 15px 0;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.profile-desc { font-size: 0.95rem; line-height: 1.5; color: #444; }
+
+.destacado-box {
+    background: #f9f9f9;
+    padding: 15px;
+    border-left: 5px solid var(--primary);
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+.destacado-box h3 { margin: 0 0 10px 0; font-size: 1rem; color: var(--primary); }
+.destacado-box ul { padding-left: 20px; margin: 0; font-size: 0.85rem; color: #555; }
+.destacado-box li { margin-bottom: 5px; }
+
+/* HABILIDADES */
+.skills-section-main h3 { font-size: 1rem; color: var(--primary); margin-bottom: 15px; }
+.skills-grid-main { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+    background: #eef5f6;
+    color: var(--primary);
+    border: 1px solid #d1e2e5;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* EXPERIENCIA */
+.experiencia h2 { font-size: 1.2rem; color: var(--primary); border-bottom: 1px solid #eee; margin-top: 30px; }
+.job { margin-bottom: 20px; }
+.job h3 { font-size: 1rem; margin: 0; color: #222; }
+.job .date { font-size: 0.8rem; color: var(--accent); font-weight: bold; }
+.job ul { padding-left: 18px; margin-top: 8px; font-size: 0.85rem; color: #666; }
+
+/* COLUMNA DERECHA (SIDEBAR) */
 .sidebar {
     flex: 1;
     background: var(--primary);
-    color: white;
+    color: var(--white);
     padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* <--- ESTO ESTIRA EL AZUL HASTA ABAJO */
-}
-/* --- ESTILOS DE TÍTULOS Y SECCIONES --- */
-h2 { 
-    font-size: 1.1rem; 
-    color: var(--primary); 
-    border-bottom: 2px solid var(--accent);
-    margin: 15px 0 12px 0;
-    padding-bottom: 4px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    justify-content: space-between;
 }
 
-/* Corrección de color para h2 en la columna oscura */
-.sidebar h2 {
-    color: white;
-    border-bottom-color: rgba(255,255,255,0.3);
-}
-
-.perfil p { font-size: 0.9rem; line-height: 1.4; color: #444; }
-
-/* Caja gris para Experiencia Destacada (como tu captura) */
-.destacado {
-    background: #f8fbfc;
-    padding: 12px;
-    border-radius: 6px;
-    border-left: 4px solid var(--primary);
-    margin-top: 12px;
-}
-
-.destacado h3 { color: var(--primary); font-size: 0.95rem; margin: 0 0 8px 0; }
-.destacado ul { padding-left: 18px; margin: 0; }
-.destacado li { font-size: 0.85rem; color: #555; margin-bottom: 4px; }
-
-/* Busca .job y reemplázalo por esto */
-.job {
-    margin-bottom: 30px; /* Aumentamos el espacio entre un trabajo y otro */
-}
-
-.job h3 {
-    font-size: 1.05rem;
-    color: #222;
-    margin: 0;
-    font-weight: 700;
-}
-
-.job h4 {
-    font-size: 0.9rem;
-    color: var(--primary);
-    margin: 5px 0; /* Un poco más de espacio bajo el cargo */
-    font-weight: 600;
-}
-
-.job ul {
-    padding-left: 20px;
-    margin-top: 10px; /* Esto separa los puntos del título del cargo */
-}
-
-.job li {
-    font-size: 0.85rem;
-    color: #555;
-    margin-bottom: 8px; /* Espacio entre cada punto de la lista */
-    line-height: 1.5;
-}
-
-/* --- SIDEBAR TEXTO (BLANCO) --- */
-.lista-fortalezas { list-style: none; padding: 0; }
-.lista-fortalezas li { font-size: 0.85rem; margin-bottom: 6px; color: #e0f2f1; }
-/* Usamos el checkmark ✔ como en tu captura */
-.lista-fortalezas li::before { content: "✔ "; color: var(--accent); }
-
-.edu-item { margin-bottom: 12px; }
-.edu-item h3 { color: white; font-size: 0.9rem; margin: 0; }
-.edu-item p { color: #b2dfdb; font-size: 0.8rem; margin: 0; }
-
-.skills-grid-main {
-    display: flex;
-    flex-wrap: wrap; /* Esto permite que bajen al siguiente renglón */
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.skill-tag {
-    background: #f0f7f8;
-    color: var(--primary);
-    border: 1px solid #d1e2e5;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    white-space: nowrap; /* Evita que una sola habilidad se parta en dos */
-}
-
-.contact-info p { font-size: 0.8rem; color: white; margin-bottom: 10px; margin-top: 0; }
-
-/* --- CORRECCIÓN DE LA FOTO --- */
 .profile-photo {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    border: 6px solid rgba(255,255,255,0.15); /* Borde más suave */
-    margin: 0 auto 10px auto;
+    border: 5px solid rgba(255,255,255,0.2);
+    margin: 0 auto 30px auto;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Forzamos el tamaño de la imagen */
-.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Recorta la foto para que llene el círculo */
+.profile-img { width: 100%; height: 100%; object-fit: cover; }
+
+.sidebar h2 {
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    margin-top: 0;
 }
 
-/* --- BOTÓN DE DESCARGA (COMO TU CAPTURA) --- */
-.download-section { position: fixed; bottom: 25px; right: 25px; }
+.fortalezas-list { padding: 0; list-style: none; font-size: 0.85rem; }
+.fortalezas-list li { margin-bottom: 10px; }
+.fortalezas-list li::before { content: "✓ "; color: var(--accent); font-weight: bold; }
+
+.edu-item { margin-bottom: 15px; }
+.edu-item h3 { font-size: 0.9rem; margin: 0; }
+.edu-item p { font-size: 0.8rem; margin: 2px 0; color: #b2dfdb; }
+
+.contact-info p { font-size: 0.85rem; margin-bottom: 10px; }
+
+/* BOTÓN DESCARGA */
+.download-section { text-align: center; margin-top: 20px; }
 .btn-download {
     background: var(--primary);
     color: white;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 30px;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* --- AJUSTES DE IMPRESIÓN (UNA SOLA HOJA) --- */
+/* AJUSTES PARA IMPRIMIR */
 @media print {
-    body { padding: 0; }
-    .resume-container { box-shadow: none; border-radius: 0; }
+    body { background: none; padding: 0; }
+    .resume-container { box-shadow: none; margin: 0; width: 100%; }
     .download-section { display: none; }
-    /* Forzamos fondo oscuro en la columna derecha al imprimir */
     .sidebar { background: var(--primary) !important; -webkit-print-color-adjust: exact; }
 }
-/* --- NUEVAS HABILIDADES EN COLUMNA BLANCA --- */
-.habilidades-tecnicas {
-    margin: 25px 0;
-}
 
-.habilidades-tecnicas h3 {
-    color: var(--primary);
-    font-size: 1rem;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
-}
-
-.skills-grid-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.skill-tag {
-    background: #f0f7f8; /* Fondo clarito */
-    color: var(--primary); /* Letras azul petróleo */
-    border: 1px solid #d1e2e5;
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-
-/* Ocultar la sección vieja de habilidades del sidebar azul */
-.sidebar .skills-section {
-    display: none;
-}
-@media (max-width: 768px) {
-    .resume-container {
-        flex-direction: column;
-        height: auto;
-    }
-    
-    .sidebar {
-        order: -1; /* Pone la foto y contacto arriba en el celular */
-    }
+/* AJUSTE PARA WEB */
+@media (max-width: 800px) {
+    .resume-container { width: 100%; flex-direction: column; }
+    .sidebar { order: -1; }
 }
