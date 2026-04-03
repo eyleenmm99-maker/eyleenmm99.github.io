@@ -1,169 +1,144 @@
 :root {
-    --primary: #334155;
+    --primary: #1c5766;
     --secondary: #144a56;
-    --accent: #2a7a8a;
+    --accent: #4a9fb0;
     --text-dark: #1a2e35;
-    --text-light: #5a7a82;
+    --text-light: #fdfdfd; /* Texto claro para fondos oscuros */
     --white: #ffffff;
     --bg-light: #f0f7f8;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background: var(--bg-light);
     margin: 0;
     padding: 20px;
     color: var(--text-dark);
-    line-height: 1.4;
 }
 
 .resume-container {
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto;
     background: white;
-    padding: 30px;
-    border-radius: 10px;
+    padding: 0; /* Quitamos padding para que el header llegue al borde */
+    border-radius: 12px;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
+/* --- HEADER MEJORADO --- */
 header {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    padding: 30px;
+    margin-bottom: 0;
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 30px;
 }
 
 .profile-img {
-    width: 110px;
-    height: 110px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 4px solid rgba(255,255,255,0.2);
     object-fit: cover;
 }
 
-h1 { margin: 0; font-size: 2rem; }
+h1 { margin: 0; font-size: 2.2rem; }
+.header-text p { color: #e0f2f1 !important; font-size: 1.1rem; margin-top: 5px; }
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1.8fr 1fr;
+    background: white;
+}
+
+.main-column {
+    padding: 30px;
+}
+
+.sidebar {
+    background: var(--primary);
+    color: white;
+    padding: 30px;
+}
+
+/* --- ESTILOS DE SECCIONES --- */
 h2 { 
     font-size: 1.2rem; 
     color: var(--primary); 
     border-bottom: 2px solid var(--accent);
-    margin: 10px 0 12px 0;
+    margin: 20px 0 15px 0;
     padding-bottom: 5px;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-/* --- ESTA ES LA MAGIA PARA QUITAR EL ESPACIO BLANCO --- */
-.grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1.6fr; /* Columna izquierda más estrecha, derecha más ancha */
-    gap: 30px;
+.sidebar h2 {
+    color: white;
+    border-bottom-color: rgba(255,255,255,0.3);
 }
 
-/* El perfil ahora ocupa todo el ancho arriba de las columnas */
-.perfil {
-    grid-column: 1 / -1;
-    background: #fdfdfd;
+.perfil p { font-size: 0.95rem; line-height: 1.5; color: #444; }
+
+.destacado {
+    background: #f8fbfc;
     padding: 15px;
     border-radius: 8px;
-    border-left: 5px solid var(--accent);
-    margin-bottom: 10px;
+    border-left: 4px solid var(--primary);
+    margin-top: 15px;
 }
 
-.job, .edu-item { margin-bottom: 15px; }
-h3 { font-size: 1.05rem; margin: 0; color: #333; font-weight: 700; }
-h4 { font-size: 0.9rem; margin: 3px 0; color: var(--accent); font-weight: 600; }
-ul { margin: 8px 0; padding-left: 20px; font-size: 0.9rem; }
-p { margin: 4px 0; font-size: 0.95rem; color: var(--text-light); }
+.destacado h3 { color: var(--primary); font-size: 1rem; margin: 0 0 10px 0; }
+.destacado ul { padding-left: 20px; margin: 0; }
+.destacado li { font-size: 0.9rem; color: #555; margin-bottom: 5px; }
 
-.skills-grid { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.job { margin-bottom: 20px; }
+.job h3 { font-size: 1rem; color: #222; margin: 0; }
+.job h4 { font-size: 0.85rem; color: var(--primary); margin: 3px 0; }
+.job ul { padding-left: 15px; font-size: 0.85rem; color: #666; }
+
+/* --- SIDEBAR TEXTO --- */
+.lista-fortalezas { list-style: none; padding: 0; }
+.lista-fortalezas li { font-size: 0.9rem; margin-bottom: 8px; color: #e0f2f1; }
+.lista-fortalezas li::before { content: "✔ "; color: var(--accent); }
+
+.edu-item { margin-bottom: 15px; }
+.edu-item h3 { color: white; font-size: 0.95rem; }
+.edu-item p { color: #b2dfdb; font-size: 0.85rem; margin: 0; }
+
+.skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
 .skill {
-    background: var(--primary);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
     color: white;
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.75rem;
-    font-weight: 600;
 }
 
-.contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
-}
+.contact-info p { font-size: 0.85rem; color: white; margin-bottom: 12px; }
 
-/* --- AJUSTES DE IMPRESIÓN --- */
+/* --- IMPRESIÓN --- */
 @media print {
-    @page { size: A4; margin: 0.4in; }
-    body { padding: 0; background: white; }
-    .resume-container { box-shadow: none; padding: 0; width: 100%; }
+    body { padding: 0; }
+    .resume-container { box-shadow: none; width: 100%; border-radius: 0; }
     .download-section { display: none; }
-    header { padding: 15px; margin-bottom: 15px; }
-    .profile-img { width: 85px; height: 85px; }
-    h1 { font-size: 1.6rem; }
-    h2 { font-size: 1.1rem; margin-top: 5px; }
-    .grid-container { gap: 20px; }
+    .sidebar { background: var(--primary) !important; -webkit-print-color-adjust: exact; }
 }
 
 .download-section { position: fixed; bottom: 25px; right: 25px; }
 .btn-download {
     background: var(--primary);
     color: white;
-    padding: 15px 25px;
+    padding: 12px 24px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
-
-/* Estilos para las nuevas secciones */
-.destacado {
-    margin-top: 15px;
-    background: rgba(28, 87, 102, 0.05);
-    padding: 12px;
-    border-radius: 6px;
-}
-
-.destacado h3 {
-    color: var(--primary);
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-}
-
-.destacado ul, .lista-fortalezas {
-    list-style: none;
-    padding-left: 5px;
-    margin: 0;
-}
-
-.destacado li::before, .lista-fortalezas li::before {
-    content: "•";
-    color: var(--accent);
-    font-weight: bold;
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
-}
-
-.lista-fortalezas li {
-    font-size: 0.85rem;
-    margin-bottom: 6px;
-    color: var(--text-light);
-}
-
-/* Ajuste para que las columnas no se vean apretadas */
-.main-column {
-    display: flex;
-    flex-direction: column;
-}
-
-
