@@ -1,96 +1,149 @@
 :root {
-    --primary: #1c5766;
-    --text: #333;
+    --primary: #1c5766; /* Azul Petróleo */
+    --accent: #4a9fb0;
+    --text-dark: #333;
+    --text-light: #fff;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* { box-sizing: border-box; }
 
 body {
-    background: #f0f0f0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-.resume-container {
-    width: 210mm;
-    height: 297mm; /* Altura exacta A4 */
-    background: white;
-    display: flex;
-    overflow: hidden; /* Evita que el contenido se desborde */
-}
-
-/* COLUMNA IZQUIERDA */
-.main-column {
-    flex: 1.5;
-    padding: 25px; /* Reducido */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.name { color: var(--primary); font-size: 1.6rem; }
-.role { color: #666; font-size: 0.9rem; margin-bottom: 15px; }
-
-h2 { 
-    font-size: 1rem; 
-    color: var(--primary); 
-    border-bottom: 1px solid #ddd;
-    margin: 10px 0 5px 0;
-    text-transform: uppercase;
-}
-
-.section-box p { font-size: 0.85rem; line-height: 1.3; }
-
-.skills-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
-.tag {
-    background: #eef5f6;
-    padding: 3px 8px;
-    border-radius: 10px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-.job { margin-bottom: 8px; }
-.job h3 { font-size: 0.9rem; }
-.job .date { font-size: 0.75rem; color: #888; }
-.job ul { margin-left: 15px; font-size: 0.8rem; }
-
-/* COLUMNA DERECHA */
-.sidebar {
-    flex: 1;
-    background: var(--primary);
-    color: white;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #cbd5e0; /* Fondo gris para la web */
+    margin: 0;
     padding: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-.photo-area { text-align: center; }
-.profile-img {
-    width: 110px; /* Foto más pequeña para ahorrar espacio */
-    height: 110px;
+/* CONTENEDOR TIPO HOJA A4 */
+.resume-container {
+    width: 210mm; /* Ancho A4 exacto */
+    height: 297mm; /* Alto A4 exacto */
+    background: white;
+    display: flex; /* Divide el contenedor en dos columnas */
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    overflow: hidden;
+    /* Forzamos el alto de la hoja A4 */
+}
+
+/* COLUMNA IZQUIERDA (BLANCA) */
+.main-column {
+    flex: 1.6; /* Ocupa más espacio */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ¡Esta es la clave! Distribuye el espacio sobrante */
+}
+
+.name { color: var(--primary); font-size: 1.8rem; margin: 0; }
+.role { color: var(--text-dark); font-size: 1rem; margin: 2px 0 20px 0; }
+h2 { color: var(--primary); font-size: 1.1rem; border-bottom: 2px solid var(--accent); margin: 0 0 10px 0; padding-bottom: 4px; text-transform: uppercase; }
+p { font-size: 0.9rem; line-height: 1.4; color: #444; }
+
+.skills-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag {
+    background: #eef5f6;
+    color: var(--primary);
+    border: 1px solid #d1e2e5;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.job { margin-bottom: 15px; }
+.job h3 { font-size: 0.95rem; color: #222; margin: 0; }
+.job h4 { font-size: 0.8rem; color: var(--primary); margin: 2px 0; }
+.job ul { padding-left: 18px; font-size: 0.8rem; color: #666; margin-top: 5px; }
+
+/* COLUMNA DERECHA (OSCURA / SIDEBAR) */
+.sidebar {
+    flex: 1; /* Ocupa menos espacio */
+    background: var(--primary); /* Fondo oscuro completo */
+    color: var(--text-light); /* Texto blanco para toda la columna */
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye el espacio aquí también */
+}
+
+.photo-container {
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 3px solid rgba(255,255,255,0.2);
+    overflow: hidden;
+    border: 5px solid rgba(255,255,255,0.2);
+    margin: 0 auto 30px auto;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-.side-item h3 {
-    font-size: 0.9rem;
+.sidebar h2 {
+    color: white;
+    font-size: 1rem;
     border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 3px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 }
 
-.side-list, .edu, .contact { font-size: 0.75rem; list-style: none; }
-.edu p { margin-bottom: 8px; }
+.side-item p, .fortalezas li, .edu-box p, .contact-info p {
+    font-size: 0.85rem;
+    color: white; /* Forzamos color blanco */
+}
 
+.fortalezas-list { padding: 0; list-style: none; font-size: 0.85rem; }
+.fortalezas-list li { margin-bottom: 8px; }
+.fortalezas-list li::before { content: "✓ "; color: var(--accent); }
+
+.edu-box { margin-bottom: 12px; }
+.edu-box h3 { font-size: 0.9rem; margin: 0; }
+.edu-box p { font-size: 0.8rem; margin: 0; color: #b2dfdb; }
+
+.contact-info p { margin-bottom: 10px; font-size: 0.8rem; }
+
+/* BOTÓN DE DESCARGA (SOLO WEB) */
+.print-btn-container {
+    display: none; /* Oculto por defecto */
+}
+
+/* AJUSTES PARA LA WEB */
+@media screen {
+    .print-btn-container {
+        display: block;
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+    }
+    .btn-print {
+        background: var(--primary);
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+}
+
+/* AJUSTES DE IMPRESIÓN (UNA SOLA HOJA PERFECTA) */
 @media print {
     body { background: none; padding: 0; }
-    .resume-container { box-shadow: none; }
-    /* Forzar que quepa en una sola hoja */
-    html, body { height: 100%; overflow: hidden; }
+    .resume-container { box-shadow: none; width: 210mm; height: 297mm; }
+    .print-btn-container { display: none; }
+    .sidebar { background-color: var(--primary) !important; -webkit-print-color-adjust: exact; }
+    
+    /* Forzamos que las columnas no salten de página */
+    .main-column, .sidebar {
+        justify-content: space-around; /* Un poco más apretado al imprimir */
+        padding: 20px;
+    }
+    .main-column h1 { font-size: 1.5rem; }
+    p { font-size: 0.8rem; }
 }
