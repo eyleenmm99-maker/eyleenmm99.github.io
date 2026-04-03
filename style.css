@@ -22,29 +22,33 @@ body {
 
 /* --- CONTENEDOR PRINCIPAL (COMO TU CAPTURA) --- */
 .resume-container {
-    width: 210mm; /* Ancho A4 exacto */
-    height: 297mm; /* Alto A4 exacto */
+    width: 210mm; /* Ancho A4 */
+    min-height: 280mm; /* Altura mínima para que llene la hoja */
     background: white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: flex; /* Divide el contenedor en dos columnas */
+    display: flex;
+    margin: 0 auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
     overflow: hidden;
+
 }
 
 /* --- COLUMNA IZQUIERDA (BLANCA) --- */
 .main-column {
-    flex: 1.6; /* Ocupa más espacio */
-    padding: 30px 40px;
-    background: white;
-}
-
-/* --- COLUMNA DERECHA (OSCURA / SIDEBAR) --- */
-.sidebar {
-    flex: 1; /* Ocupa menos espacio */
-    background: var(--primary); /* Fondo oscuro completo */
-    color: var(--text-light); /* Texto blanco para toda la columna */
-    padding: 30px;
+    flex: 1.6;
+    padding: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between; /* Esto elimina el hueco blanco final */
+}
+
+.sidebar {
+    flex: 1;
+    background: var(--primary);
+    color: white;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Esto equilibra la columna azul */
 }
 
 /* --- ESTILOS DE TÍTULOS Y SECCIONES --- */
@@ -108,14 +112,13 @@ h2 {
 
 /* --- CORRECCIÓN DE LA FOTO --- */
 .profile-photo {
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
+    border: 5px solid rgba(255,255,255,0.2);
+    margin: 0 auto 20px auto;
     overflow: hidden;
-    border: 4px solid rgba(255,255,255,0.3);
-    margin-bottom: 20px;
-    align-self: center; /* Centra la foto en la columna oscura */
-    background-color: white; /* Por si la foto no carga, se ve el círculo */
+    flex-shrink: 0; /* Para que no se aplaste */
 }
 
 /* Forzamos el tamaño de la imagen */
