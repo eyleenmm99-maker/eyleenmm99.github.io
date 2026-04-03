@@ -174,3 +174,36 @@ h2 {
     /* Forzamos fondo oscuro en la columna derecha al imprimir */
     .sidebar { background: var(--primary) !important; -webkit-print-color-adjust: exact; }
 }
+/* --- NUEVAS HABILIDADES EN COLUMNA BLANCA --- */
+.habilidades-tecnicas {
+    margin: 25px 0;
+}
+
+.habilidades-tecnicas h3 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.skills-grid-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tag {
+    background: #f0f7f8; /* Fondo clarito */
+    color: var(--primary); /* Letras azul petróleo */
+    border: 1px solid #d1e2e5;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Ocultar la sección vieja de habilidades del sidebar azul */
+.sidebar .skills-section {
+    display: none;
+}
