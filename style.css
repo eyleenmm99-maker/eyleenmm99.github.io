@@ -132,48 +132,54 @@ body {
 
 /* AJUSTES PARA IMPRIMIR */
 @media print {
-    /* Forzamos el tamaño de la página y eliminamos márgenes del navegador */
+    /* 1. Eliminamos márgenes del navegador para ganar espacio */
     @page {
         size: A4;
         margin: 0;
     }
 
     body {
-        background: none;
+        margin: 0;
         padding: 0;
-        margin: 0;
-    }
-
-    .resume-container {
-        width: 210mm;
-        height: 297mm; /* Cambiamos min-height por height fijo */
-        box-shadow: none;
-        margin: 0;
-        overflow: hidden; /* Evita que cualquier elemento cree una página extra */
-        page-break-after: avoid;
-        page-break-before: avoid;
-    }
-
-    /* Aseguramos que los colores de fondo se impriman */
-    .sidebar {
-        background-color: #1c5766 !important;
-        -webkit-print-color-adjust: exact;
+        -webkit-print-color-adjust: exact; /* Fuerza la impresión de colores */
         print-color-adjust: exact;
     }
 
-    /* Ajuste ligero de paddings para asegurar que quepa */
+    /* 2. Forzamos el contenedor a ser una caja fija de una sola hoja */
+    .resume-container {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important; /* Mantiene las dos columnas juntas */
+        flex-direction: row !important;
+        overflow: hidden !important; /* No permite que nada se pase a la hoja 2 */
+        box-shadow: none;
+    }
+
+    /* 3. Aseguramos que el Sidebar ocupe todo el alto y mantenga su color */
+    .sidebar {
+        height: 100% !important;
+        background-color: #1c5766 !important;
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* 4. La columna principal también ocupa el alto total */
+    .main-column {
+        height: 100% !important;
+        flex: 1.6 !important;
+    }
+
+    /* 5. Ocultamos el botón de descarga para que no salga en el PDF */
+    .download-section, .btn-download {
+        display: none !important;
+    }
+
+    /* 6. Ajuste fino: Reducimos un poco los espacios internos para asegurar el encaje */
     .main-column, .sidebar {
-        padding: 30px !important;
-    }
-
-    /* Ocultamos el botón de descarga */
-    .download-section {
-        display: none;
-    }
-
-    /* Evitamos saltos de página dentro de secciones */
-    section, .job, .destacado-box {
-        page-break-inside: avoid;
+        padding: 25px !important;
     }
 }
 
