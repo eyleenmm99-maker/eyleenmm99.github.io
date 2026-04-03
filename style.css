@@ -132,10 +132,49 @@ body {
 
 /* AJUSTES PARA IMPRIMIR */
 @media print {
-    body { background: none; padding: 0; }
-    .resume-container { box-shadow: none; margin: 0; width: 100%; }
-    .download-section { display: none; }
-    .sidebar { background: var(--primary) !important; -webkit-print-color-adjust: exact; }
+    /* Forzamos el tamaño de la página y eliminamos márgenes del navegador */
+    @page {
+        size: A4;
+        margin: 0;
+    }
+
+    body {
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .resume-container {
+        width: 210mm;
+        height: 297mm; /* Cambiamos min-height por height fijo */
+        box-shadow: none;
+        margin: 0;
+        overflow: hidden; /* Evita que cualquier elemento cree una página extra */
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+
+    /* Aseguramos que los colores de fondo se impriman */
+    .sidebar {
+        background-color: #1c5766 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Ajuste ligero de paddings para asegurar que quepa */
+    .main-column, .sidebar {
+        padding: 30px !important;
+    }
+
+    /* Ocultamos el botón de descarga */
+    .download-section {
+        display: none;
+    }
+
+    /* Evitamos saltos de página dentro de secciones */
+    section, .job, .destacado-box {
+        page-break-inside: avoid;
+    }
 }
 
 /* AJUSTE PARA WEB */
