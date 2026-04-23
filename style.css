@@ -120,15 +120,27 @@ body {
 .contact-info p { font-size: 0.85rem; margin-bottom: 10px; }
 
 /* BOTÓN DESCARGA */
-.download-section { text-align: center; margin-top: 20px; }
+.download-section {
+    text-align: center;
+    padding: 20px 0;
+    background: #e0e0e0; /* Mismo color del fondo de la página */
+}
+
 .btn-download {
-    background: var(--primary);
+    background: #1c5766; /* Tu color primario */
     color: white;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+.btn-download:hover {
+    background: #4a9fb0;
 }
 
 /* AJUSTES PARA IMPRIMIR */
